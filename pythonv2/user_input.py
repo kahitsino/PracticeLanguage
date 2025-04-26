@@ -13,6 +13,7 @@ with open('reply.txt', 'r') as file:
 
 attempt = 0
 max_attempts = 3
+
 while attempt < max_attempts:
     attempt += 1
     print(f'{ikaw}Hi')
