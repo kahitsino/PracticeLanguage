@@ -26,7 +26,6 @@ def UserInputOperators():
             return UserInput_1, UserInput_2
         except ValueError:
             print('System: Invalid number!')
-        
 def main():
     while True:
         choices()
