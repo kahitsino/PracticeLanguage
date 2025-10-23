@@ -9,7 +9,7 @@ while True:
         UserInput = int(input('Enter a number: '))
     except ValueError:
         print(invalid_choices)
-        
+        UserInput = None
 
     if UserInput == 1:
         try:
