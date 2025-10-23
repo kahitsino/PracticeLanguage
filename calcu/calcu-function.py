@@ -19,13 +19,14 @@ def division(UserInput_1, UserInput_2):
     else:
         print(answer, UserInput_1 / UserInput_2)
 def UserInputOperators():
-    try:
-        UserInput_1 = int(input('Enter a first number: '))
-        UserInput_2 = int(input('Enter a second number: '))
-        return UserInput_1, UserInput_2
-    except ValueError:
-        print('System: Invalid number!')
-    return main()
+    while True:
+        try:
+            UserInput_1 = int(input('Enter a first number: '))
+            UserInput_2 = int(input('Enter a second number: '))
+            return UserInput_1, UserInput_2
+        except ValueError:
+            print('System: Invalid number!')
+        
 def main():
     while True:
         choices()
@@ -51,5 +52,5 @@ def main():
             print('System: Exited!')
             break
         else:
-            pass
+            continue
 main()
