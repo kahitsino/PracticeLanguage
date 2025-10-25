@@ -20,10 +20,10 @@ class BasicCalculator:
         history.AddHistory('Multiplication', number_1, number_2, result)
     def Division(self, number_1, number_2):
         history = CalculatorUI()
-        result = number_1 / number_2
         if number_2 == 0:
             print('System: ', number_1, " can't divide in ", number_2)
         else:
+            result = number_1 / number_2
             print(answer, result)
             history.AddHistory('Division', number_1, number_2, result)
 class CalculatorUI:
