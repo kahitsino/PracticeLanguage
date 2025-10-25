@@ -55,7 +55,7 @@ def main():
             UserInput = int(input('Enter a choices: '))
         except ValueError:
             print("System: Please enter a valid choice.")
-            continue # choice between continue or UserInput = None
+            continue # choose between continue or UserInput = None
         if UserInput == 1:
             UserInput_1, UserInput_2 = UserInputOperators()
             addition(UserInput_1, UserInput_2)
