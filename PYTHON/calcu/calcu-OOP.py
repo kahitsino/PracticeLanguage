@@ -30,7 +30,12 @@ class CalculatorUI:
     def __init__(self):
         pass
     def Choices(self):
+        print('=== CALCULATOR ===')
         print("1. Addition")
+        print('2. Subtraction')
+        print('3. Multiplication')
+        print('4. Division')
+        print('5. History')
         print("6. Exit")
     def UserInput(self):
         while True:
