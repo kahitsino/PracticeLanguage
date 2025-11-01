@@ -30,9 +30,31 @@ class AdvancedCalculator:
         result = math.sqrt(SquareRootInput)
         print(self.answer,result)
         self.ui.AddHistory('Square Root', SquareRootInput, None, result)
+    def Power(self, number_1, number_2):
+        result = number_1 ** number_2
+        print(self.answer, result)
+        self.ui.AddHistory('Power', number_1, number_2, result)
 class CalculatorUI:
     def __init__(self):
         self.historylist = []
+        self.operators_symbols = {
+                        'Addition': '+',
+                        'Subtraction': '-',
+                        'Multiplication': '×',
+                        'Division': '÷',
+                        # Advanced Calculator Power
+                        'Square Root': '√',
+                        'Power': '^'
+                    }
+        self.operators = [
+            'Addition',
+            'Subtraction',
+            'Multiplication',
+            'Division',
+            # Advanced Calculator Power
+            'Square Root',
+            'Power'
+            ]
         self.system = 'System: '
     def ChoicingCalculator(self):
         print('=== CHOOOSE CALCULATOR ===')
@@ -82,19 +104,14 @@ class CalculatorUI:
             print(self.system, 'No History!')
         else:
             for i, history in enumerate(self.historylist, 1):
-                Operators = ['Addition', 'Subtraction', 'Multiplication', 'Division']
-                if history['Operations'] in Operators:
-                    operators_symbols = {
-                        'Addition': '+',
-                        'Subtraction': '-',
-                        'Multiplication': '*',
-                        'Division': '/'
-                    }
-                    symbol = operators_symbols[history['Operations']]
+                if history['Operations'] in self.operators:
+                    symbol = self.operators_symbols[history['Operations']]
                     print(f'{i}. {history['Operations']}: {history['Numbers'][0]} {symbol} {history['Numbers'][1]} = {history['Result']}')
                 # For Square Root
                 elif history['Operations'] == 'Square Root':
-                    print(f'{i}. {history['Operations']}: {history['Numbers'][0]} = {history['Result']}')
+                    print(f'{i}. {history['Operations']}: {history['Numbers'][0]} {symbol} {history['Numbers'][1]} = {history['Result']}')
+                elif history['Operations'] == 'Power':
+                    print(f'{i}. {history['Operations']}: {history['Numbers'][0]} {symbol} {history['Numbers'][1]} = {history['Result']}')
                 else:
                     continue
 def main():
@@ -139,6 +156,10 @@ def main():
                     print('=== SQUARE ROOT ===')
                     SquareRootInput = ui.UserInputSingle()
                     acalculator.SquareRoot(SquareRootInput)
+                elif AdvancedCalculatorUserInput == 2:
+                    print('=== POWER ===')
+                    number_1, number_2 = ui.UserInputNumbers()
+                    acalculator.Power(number_1, number_2)
                 elif AdvancedCalculatorUserInput == 12:
                     ui.ShowHistory()
                 elif AdvancedCalculatorUserInput == 13:
